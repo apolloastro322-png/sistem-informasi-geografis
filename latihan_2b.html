@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Peta PSDKU Tanah Datar</title>
+    <link rel="stylesheet" href="dist/leaflet.css" />
+    <style>
+      #map {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script src="dist/leaflet.js"></script>
+    <script>
+      var map = L.map("map").setView(
+        [-0.5057075510942677, 100.77881405402046],
+        17
+      );
+
+      L.tileLayer(
+        "https://api.maptiler.com/maps/streets-v4/{z}/{x}/{y}.png?key=wDzpqtI5oYrYifwGGStF",
+        {
+          tileSize: 512,
+          zoomOffset: -1,
+          minZoom: 1,
+          attribution:
+            '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>',
+        }
+      ).addTo(map);
+
+      var lokasi = [
+        [-0.5057075510942677, 100.77881405402046, "pic/collage.png"], // PSDKU
+        [-0.5065750195824847, 100.7783940399528, "pic/clinic.png"], // Regadil
+        [-0.5041204268398912, 100.77883975557044, "pic/school.png"], // SMK
+        [-0.5077549939605436, 100.78064616016034, "pic/school.png"], // SMA
+        [-0.5079825769167466, 100.77935647278264, "pic/health-center.png"], // Puskesmas
+        [-0.5069356952519247, 100.77943992314236, "pic/weave.png"], // Sentra Tenun
+      ];
+
+      for (var i = 0; i < lokasi.length; i++) {
+        var greenIcon = L.icon({
+          iconUrl: lokasi[i][2],
+          //   shadowUrl:
+          // "https://leafletjs.com/examples/custom-icons/leaf-shadow.png",
+
+          iconSize: [38, 38], // size of the icon
+          //   shadowSize: [50, 64], // size of the shadow
+          iconAnchor: [22, 94], // point of the icon which will correspond to marker's location
+          //   shadowAnchor: [4, 62], // the same for the shadow
+          popupAnchor: [-3, -76], // point from which the popup should open relative to the iconAnchor
+        });
+        var marker = new L.marker([lokasi[i][0], lokasi[i][1]], {
+          icon: greenIcon,
+        }).addTo(map);
+      }
+    </script>
+  </body>
+</html>

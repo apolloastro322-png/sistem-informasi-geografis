@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Peta PSDKU Tanah Datar</title>
+    <link rel="stylesheet" href="dist/leaflet.css" />
+    <style>
+      #map {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script src="dist/leaflet.js"></script>
+    <script>
+      var map = L.map("map").setView(
+        [-0.5057075510942677, 100.77881405402046],
+        17
+      );
+
+      L.tileLayer(
+        "https://api.maptiler.com/maps/streets-v4/{z}/{x}/{y}.png?key=wDzpqtI5oYrYifwGGStF",
+        {
+          tileSize: 512,
+          zoomOffset: -1,
+          minZoom: 1,
+          attribution:
+            '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>',
+        }
+      ).addTo(map);
+
+      var info_psdku = `<p style = "text-align: center;"><img src="pic/psdku.jpg" width ="250px" height = "100px"/></p><p>Program Studi D3 Sistem Informasi (PSDKU Tanah Datar) berfokus pada pengembangan dan pengelolaan sistem informasi untuk mendukung operasional bisnis <a href ="https://ti.pnp.ac.id/" target="_blank">Baca Selengkapnya</a></p>`;
+
+      var marker1 = L.marker([-0.5057075510942677, 100.77881405402046])
+        .bindPopup(info_psdku)
+        .addTo(map);
+
+      // var marker = L.marker([-0.5057075510942677, 100.77881405402046])
+      //   .bindTooltip("PSDKU Tanah Datar")
+      //   .addTo(map);
+
+      var marker1 = L.marker([-0.5077030370440808, 100.7807988922431])
+        .bindPopup("Hidden Game Tanjung Barulak")
+        .addTo(map);
+    </script>
+  </body>
+</html>
