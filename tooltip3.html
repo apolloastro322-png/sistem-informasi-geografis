@@ -40,18 +40,21 @@
           -0.5057075510942677,
           100.77881405402046,
           "pic/collage.png",
+          "PSDKU Tanah Datar",
           `<p style = "text-align: center;"><img src="pic/psdku.jpg" width ="250px" height = "100px"/></p><p>Program Studi D3 Sistem Informasi (PSDKU Tanah Datar) berfokus pada pengembangan dan pengelolaan sistem informasi untuk mendukung operasional bisnis <a href ="https://ti.pnp.ac.id/" target="_blank">Baca Selengkapnya</a></p>`,
         ], // PSDKU
         [
           -0.5065750195824847,
           100.7783940399528,
           "pic/clinic.png",
+          "Praktek Regadil",
           `<p style = "text-align: center;"><img src="pic/regadil.jpg" width ="250px" height = "100px"/></p><p>Regadil</p>`,
         ], // Regadil
         [
           -0.5041204268398912,
           100.77883975557044,
           "pic/school.png",
+          "SMKN 1 Lintau Buo",
           `<p style = "text-align: center;"><img src="pic/smk.jpg" width ="250px" height = "100px"/></p><p>SMKN 1 Lintau Buo adalah sekolah menengah kejuruan negeri yang berlokasi di Jalan Raya Tigo Jangko, Kecamatan Lintau Buo, Kabupaten Tanah Datar, Sumatera Barat. Sekolah ini memiliki 37 rombongan belajar (rombel) dan fokus pada pengembangan keterampilan siswa agar siap menghadapi dunia kerja modern dengan beragam jurusan unggulan.  <a href ="https://smkn1lintaubuo.sch.id" target="_blank">Baca Selengkapnya</a></p>`,
         ], // SMK
       ];
@@ -64,14 +67,15 @@
 
           iconSize: [38, 38], // size of the icon
           //   shadowSize: [50, 64], // size of the shadow
-          iconAnchor: [22, 94], // point of the icon which will correspond to marker's location
+          //   iconAnchor: [22, 94], // point of the icon which will correspond to marker's location
           //   shadowAnchor: [4, 62], // the same for the shadow
-          popupAnchor: [-3, -76], // point from which the popup should open relative to the iconAnchor
+          //   popupAnchor: [-3, -76], // point from which the popup should open relative to the iconAnchor
         });
         var marker = new L.marker([lokasi[i][0], lokasi[i][1]], {
           icon: greenIcon,
         })
-          .bindPopup(lokasi[i][3])
+          .bindTooltip(lokasi[i][3])
+          .bindPopup(lokasi[i][4])
           .addTo(map);
       }
     </script>
