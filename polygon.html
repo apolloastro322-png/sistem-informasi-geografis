@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PETA RUMAH</title>
+    <link rel="stylesheet" href="dist/leaflet.css" />
+    <script src="dist/leaflet.js"></script>
+    <style>
+      #map {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+      var map = L.map("map").setView(
+        [-0.5056485448027319, 100.77887842657047],
+        17
+      );
+      L.tileLayer(
+        "https://api.maptiler.com/maps/streets-v4/{z}/{x}/{y}@2x.png?key=PCDivYSHDGUnmmlgJm8t",
+        {
+          tileSize: 512,
+          zoomOffset: -1,
+          minZoom: 1,
+          attribution:
+            '<a href="<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>',
+        }
+      ).addTo(map);
+      var marker = L.marker([-0.5056485448027319, 100.77887842657047])
+        .bindTooltip("Psdku Tanah Datar")
+        .bindPopup("Psdku Tanah datar")
+        .addTo(map);
+      var marker = L.marker([-0.5023334627575213, 100.78047702314022])
+        .bindTooltip("Lapau Etek")
+        .bindPopup("Lapau etek")
+        .addTo(map);
+
+      var Jalanpsdku = [
+        [
+          [-0.5124446602242364, 100.78030010777572],
+          [-0.51276440825009, 100.78074761422654],
+          [-0.5132290140027618, 100.78047244834242],
+        ],
+        [
+          [-0.5025880886070843, 100.78027670777766],
+          [-0.5034731834519761, 100.781660727598],
+          [-0.5035952031853831, 100.78170723831214],
+          [-0.5046976526287446, 100.78333955722783],
+          [-0.5058616860796911, 100.78233641107607],
+          [-0.5066978158865093, 100.78204428029485],
+          [-0.5084304549016011, 100.78147028757454],
+          [-0.5103186554213476, 100.77976440265861],
+          [-0.5059914873959794, 100.77848574486791],
+        ],
+      ];
+      L.polygon(Jalanpsdku, { color: "red" }).addTo(map);
+
+      var icon1;
+      L.tooltip({ permanent: true })
+        .setLatLng([-0.5038516189269773, 100.77776335110909])
+        .setContent(
+          "<img src='pic/motorcycle.png' width='16'> <b> Lebih cepat 5 Menit </b><br> 1.5km"
+        )
+        .addTo(map);
+
+      L.tooltip({ permanent: true })
+        .setLatLng([-0.5033205137163399, 100.78143796917634])
+        .setContent(
+          "<img src='pic/pngtree-motorcycle-icon-png-image_1047372' width='16'> <b> Lebih mabat 10 Menit </b><br> 2km"
+        )
+        .addTo(map);
+    </script>
+  </body>
+</html>
